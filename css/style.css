@@ -1,0 +1,7 @@
+.element {
+    background-color: #bbb;
+}
+
+.element.active, .element.const {
+    background-color: #ff0;
+}

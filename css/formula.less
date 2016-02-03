@@ -1,0 +1,139 @@
+@digitPartWidth: 60px;
+@digitPartHeight: 10px;
+@digitPadding: 0px;
+
+@symbolPartWidth: 50px;
+@symbolPartHeight: 10px;
+@symbolPadding : 10px;
+
+@placePadding: 10px;
+@placeWidth: @digitPartWidth + @digitPartHeight * 2 + @digitPadding * 2 + @placePadding * 2;
+@placeHeight: @digitPartWidth * 2 + @digitPartHeight * 3 + @digitPadding * 4 + @placePadding * 2;
+
+.rotate(@deg) {
+    -moz-transform: rotate(@deg);
+    -ms-transform: rotate(@deg);
+    -webkit-transform: rotate(@deg);
+    -o-transform: rotate(@deg);
+    transform: rotate(@deg);
+}
+
+.formula_part {
+    display: inline-block;
+    position: relative;
+
+    height : @placeHeight;
+    width : @placeWidth;
+    margin : @digitPartHeight;
+
+    background-color: #a1002d;
+}
+
+.digit .element,
+.operation .element {
+    position : absolute;
+}
+
+.digit-1 {
+    width : @digitPartWidth;
+    height : @digitPartHeight;
+    top : @placePadding;
+    left : (@placeWidth - @digitPartWidth) / 2;
+}
+
+.digit-2 {
+    width : @digitPartHeight;
+    height : @digitPartWidth;
+    top : @placePadding + @digitPartHeight + @digitPadding;
+    left : @placeWidth - @placePadding - @digitPartHeight;
+}
+
+.digit-3 {
+    width : @digitPartHeight;
+    height : @digitPartWidth;
+    top : @placePadding + @digitPartHeight * 2 + @digitPadding * 3 + @digitPartWidth;
+    left : @placeWidth - @placePadding - @digitPartHeight;
+}
+
+.digit-4 {
+    width : @digitPartWidth;
+    height : @digitPartHeight;
+    top : @placeHeight - @digitPartHeight - @placePadding;
+    left : (@placeWidth - @digitPartWidth) / 2;
+}
+
+.digit-5 {
+    width : @digitPartHeight;
+    height : @digitPartWidth;
+    top : @placePadding + @digitPartHeight * 2 + @digitPadding * 3 + @digitPartWidth;
+    left : @placePadding;
+}
+
+.digit-6 {
+    width : @digitPartHeight;
+    height : @digitPartWidth;
+    top : @placePadding + @digitPartHeight + @digitPadding;
+    left : @placePadding;
+}
+
+.digit-7 {
+    width : @digitPartWidth;
+    height : @digitPartHeight;
+    top : @placePadding + @digitPartHeight + @digitPadding * 2 + @digitPartWidth;
+    left : (@placeWidth - @digitPartWidth) / 2;
+}
+
+.operation_equal {
+    .element:nth-child(1) {
+        height : @symbolPartHeight;
+        width : @symbolPartWidth;
+        top : (@placeHeight - @symbolPartHeight * 2 - @symbolPadding) / 2;
+        left : (@placeWidth - @symbolPartWidth) / 2;
+    }
+
+    .element:nth-child(2) {
+        height : @symbolPartHeight;
+        width : @symbolPartWidth;
+        top : (@placeHeight - @symbolPartHeight * 2 - @symbolPadding) / 2 + @symbolPadding + @symbolPartHeight;
+        left : (@placeWidth - @symbolPartWidth) / 2;
+    }
+}
+
+.operation_plus {
+    .element:nth-child(1) {
+        height : @symbolPartHeight;
+        width : @symbolPartWidth;
+        top : (@placeHeight - @symbolPartHeight) / 2;
+        left : (@placeWidth - @symbolPartWidth) / 2;
+        z-index: 2;
+    }
+
+    .element:nth-child(2) {
+        height : @symbolPartWidth;
+        width : @symbolPartHeight;
+        top : (@placeHeight - @symbolPartWidth) / 2;
+        left : (@placeWidth - @symbolPartHeight) / 2;
+    }
+}
+
+.operation_multi {
+    .element:nth-child(1) {
+        height : @symbolPartHeight;
+        width : @symbolPartWidth;
+        top : (@placeHeight - @symbolPartHeight) / 2;
+        left : (@placeWidth - @symbolPartWidth) / 2;
+        z-index: 2;
+
+        .rotate(135deg)
+    }
+
+    .element:nth-child(2) {
+        height : @symbolPartWidth;
+        width : @symbolPartHeight;
+        top : (@placeHeight - @symbolPartWidth) / 2;
+        left : (@placeWidth - @symbolPartHeight) / 2;
+
+        .rotate(135deg)
+    }
+}
+

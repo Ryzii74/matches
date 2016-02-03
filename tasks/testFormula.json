@@ -1,0 +1,6 @@
+{
+  "fieldType"     : "formula",
+  "field"         : "5+3=2",
+  "movesType"     : "add",
+  "movesCount"    : 2
+}
